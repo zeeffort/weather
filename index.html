@@ -3,29 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Weather App</title>
   </head>
-  <header>
-    <input type="text" placeholder="Enter a city" required />
-    <input type="submit" />
-  </header>
+  
+  
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col-8">
-          <h1>Harare</h1>
-          <p>
-            Wednesday 1:36, overcast clouds <br />
-            Humidity: 72%, Wind: 4.12km/h
-          </p>
-          
-        </div>
-        <div class="col-4">⛅ 21 <sup>&deg C</sup></div>
-      </div>
-    </div>
-    <div>
-     
-  </div>
+      <header >
+        <form action="submit" id="search-form">
+        <input type="text" placeholder="Enter a city" class = "search-input" id="search-input" required />
+        <input type="submit" value="Search" class="search-btn"/>
+      </form>
+      </header>
+          <div class="weather">
+            <div>
+            <h1 class="city" id="current-city">
+              
+            </h1>
+              <p class="current-details">
+                <span class="current-date">
+                  Wednesday 1:36 
+                </span>, <span id="description"></span> <br />
+                
+                  Humidity: <strong id="humidity-value"></strong>, Wind: <strong id="wind"></strong>
+              </p>
+          </div>
+          <div class="temperature">
+            <span class="temp-icon">⛅</span> 
+            <span class="temp-value" id="temperature-value"></span> 
+            <span class="temp-unit">&deg C</span>
+          </div>
+    </div> 
     <footer>
       <p>
         Coded by
@@ -35,5 +45,6 @@
         <a href="https://weather-zees-project.netlify.app/">Netlify</a>
       </p>
     </footer>
+  <script src="index.js"></script>
   </body>
 </html>

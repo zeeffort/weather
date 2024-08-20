@@ -1,0 +1,82 @@
+body {
+    background-color: rgb(236, 234, 234);
+}
+.container {
+    background-color: white;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 15px;
+
+}
+header {
+    border-bottom: 1px solid #f9f7fe;
+    padding-bottom: 30px;
+    
+}
+.search-input {
+    width: 75%;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 18px;
+    border: none;
+    background-color: #f9f7fe;
+    color: rgba(39, 33, 66, 0.4);
+}
+
+.search-btn {
+    color: white;
+    background-color: blueviolet;
+    padding: 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    
+}
+.temperature {
+    font-size: 40px;
+}
+
+.weather {
+    display: flex;
+    justify-content: space-between;
+  }
+
+.temp-icon {
+    position: relative;
+    top: -8px;
+    font-size: 40px;
+    margin-right: 10px;
+}
+.temp-value {
+    font-size: 70px;
+    font-weight: bold;
+}
+.temp-unit {
+    font-size: 28px;
+    position: relative;
+    top: -38px;
+
+}
+.current-details {
+    color: rgba(39, 33, 66, 0.4);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.current-details strong {
+    color: rgb(248, 91, 125);
+}
+.city {
+    font-size: 38px;
+    font-weight: 900;
+    margin: 0;
+  }
+
+
+  footer{
+    border-top: 1px solid #f9f7fe;
+    padding-top: 15px;
+    text-align: center;
+}
