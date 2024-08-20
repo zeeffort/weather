@@ -4,9 +4,11 @@ function getResponse(response){
    let descriptionElement = document.querySelector("#description");
    let humidityElement = document.querySelector("#humidity-value");
    let windElement = document.querySelector("#wind");
+   let dateElement = document.querySelector("#current-date");
 
 
    city.innerHTML = response.data.city;
+   dateElement = "Tuesday 14:49";
    descriptionElement.innerHTML = response.data.condition.description;
    humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
    windElement.innerHTML = `${response.data.wind.speed}km/h`;
