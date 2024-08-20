@@ -43,19 +43,18 @@ header {
   }
 
 .temp-icon {
-    position: relative;
-    top: -8px;
-    font-size: 40px;
-    margin-right: 10px;
+    width: 88px;
+    height: 88px;
 }
 .temp-value {
-    font-size: 70px;
+    font-size: 88px;
     font-weight: bold;
+    margin-left: 10px;
+    
 }
 .temp-unit {
     font-size: 28px;
-    position: relative;
-    top: -38px;
+    top: 6px;
 
 }
 .current-details {
