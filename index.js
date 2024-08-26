@@ -33,6 +33,10 @@ function formatDate(date) {
     ];
     let day = days[date.getDay()];
 
+    if ( hours < 10) {
+        hours = `0${hours}`
+    } 
+
     if (minutes < 10) {
         minutes = `0${minutes}`
     }
@@ -53,8 +57,38 @@ function searchCity(event) {
     refreshWeather(searchInput.value);
 }
 
-
+function getForecast() {
+    let apiKey ="4d930a106obfd6d4e69t4b1accf3ecd4";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query={query}&key={key}`;
+}
+function displayForecast() {
+    
+    let days = ["Tues", "Wed", "Thu", "Fri", "Sat"];
+    let forecastHtml = "";
+    days.forEach(function (day) {
+    forecastHtml = 
+    forecastHtml +
+        `<div class="forecast-day">
+        <div class="forecast-date">${day}</div>
+        <div class="forecast-icon">🌤</div>
+        <div class="forecast-temperatures">
+          <div class="forecast-temperature">
+            <strong>15&deg; </strong>
+          </div>
+          <div class="forecast-temperature">
+            9&deg;
+          </div>
+        </div>
+        </div>
+        `;
+    });
+    
+    let forecast = document.querySelector("#forecast");
+    forecast.innerHTML = forecastHtml;
+}
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);
 
 refreshWeather("Lisbon");
+displayForecast ();
+
