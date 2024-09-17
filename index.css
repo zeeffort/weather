@@ -65,7 +65,7 @@ header {
 }
 
 .current-details strong {
-    color: rgb(248, 91, 125);
+    color: rgb(248, 91, 125); 
 }
 .city {
     font-size: 38px;
@@ -75,21 +75,23 @@ header {
 
   .weather-forecast-container {
     display: flex;
-    justify-content: space-around;
+    flex-direction: row; 
+    justify-content: space-between;
     margin-top: 30px;
+    
   }
   .forecast-day {
     text-align: center;
     color: rgba(39, 33, 66, 0.4) ;
-    font-size: 16px;
-    line-height: 20px;
-    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 18px;
+    
   }
 
-  .forecast-icon {
-    text-align: center;
-    font-size: 38px;
-    margin-top: 10px;
+  .forecast-icon img {
+    width: 70px;
+    height: 70px;
+    
   }
 
   .forecast-temperatures {
@@ -101,7 +103,7 @@ header {
   }
 
   .forecast-temperature {
-    padding: 0 10px;
+    padding: 0 8px;
   }
 
   footer{

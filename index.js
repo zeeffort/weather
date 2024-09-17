@@ -17,7 +17,8 @@ function getResponse(response){
    temperatureElement.innerHTML = Math.round(response.data.temperature.current);
    iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="temp-icon">`
 
-   console.log(response.data); 
+   getForecast(response.data.city);
+
 }
 function formatDate(date) {
     let minutes = date.getMinutes();
@@ -57,38 +58,60 @@ function searchCity(event) {
     refreshWeather(searchInput.value);
 }
 
-function getForecast() {
-    let apiKey ="4d930a106obfd6d4e69t4b1accf3ecd4";
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query={query}&key={key}`;
+function formatDay (timestamp){
+    let date = new Date(timestamp * 1000);
+    let days = [
+        "Sun",
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+    ]
+
+    return days[date.getDay()];
+
 }
-function displayForecast() {
-    
-    let days = ["Tues", "Wed", "Thu", "Fri", "Sat"];
+
+function getForecast(city) {
+    let apiKey ="4d930a106obfd6d4e69t4b1accf3ecd4";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+    axios.get(apiUrl).then(displayForecast);
+    console.log(apiUrl);
+
+}
+function displayForecast(response) {
     let forecastHtml = "";
-    days.forEach(function (day) {
+    response.data.daily.forEach(function (day, index) {
+    
+    if (index < 5) {
     forecastHtml = 
     forecastHtml +
         `<div class="forecast-day">
-        <div class="forecast-date">${day}</div>
-        <div class="forecast-icon">🌤</div>
+        <div class="forecast-date">${formatDay(day.time)}</div>
+        <div class="forecast-icon">
+            <img src="${day.condition.icon_url}" />
+        </div>
         <div class="forecast-temperatures">
           <div class="forecast-temperature">
-            <strong>15&deg; </strong>
+            <strong>${Math.round(day.temperature.maximum)}&deg </strong>
           </div>
           <div class="forecast-temperature">
-            9&deg;
+            ${Math.round(day.temperature.minimum)}&deg;
           </div>
         </div>
         </div>
         `;
-    });
+    }});
     
     let forecast = document.querySelector("#forecast");
     forecast.innerHTML = forecastHtml;
 }
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);
 
-refreshWeather("Lisbon");
-displayForecast ();
+refreshWeather("Harare");
+
 
